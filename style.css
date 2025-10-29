@@ -1,0 +1,337 @@
+/* =========================
+   Global Reset & Box Sizing
+   ========================= */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* =========================
+   NASA Brand Colors
+   ========================= */
+:root {
+  --nasa-blue: #0b3d91;
+  --nasa-red: #fc3d21;
+  --nasa-white: #ffffff;
+  --nasa-black: #212121;
+}
+
+/* =========================
+   Base Page Styles
+   ========================= */
+body {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  background: 
+    linear-gradient(rgba(11,61,145,0.7), rgba(33,33,33,0.7)),
+    url('img/main_image_star-forming_region_carina_nircam_final-5mb.jpeg') center center / cover no-repeat;
+  color: var(--nasa-black);
+  padding: 20px;
+  position: relative;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Main content wrapper with shadow for depth */
+.body-shadow-wrapper {
+  box-shadow: 0 0 60px 16px rgba(11,61,145,0.35), 0 0 0 8px rgba(33,33,33,0.18);
+  border-radius: 16px;
+  padding: 0;
+  margin: 0 auto;
+  max-width: 1240px;
+}
+
+/* =========================
+   Main Content Area
+   ========================= */
+.main-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 24px;
+  min-height: 350px;
+  background: rgba(255,255,255,0.97);
+  box-shadow: 0 2px 24px rgba(11,61,145,0.12);
+  border-radius: 12px;
+  margin: 0 auto 32px auto;
+  max-width: 650px;
+  transition: box-shadow 0.3s;
+}
+
+/* =========================
+   Image Display & Gallery
+   ========================= */
+.image-display, .gallery {
+  margin: 0 auto;
+}
+
+/* =========================
+   Filters Row (Date picker, Button)
+   ========================= */
+.filters {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 20px;
+  padding: 0 20px;
+  /* Modern spacing and alignment */
+  align-items: center;
+}
+
+/* Responsive: stack vertically on small screens */
+@media (max-width: 700px) {
+  .main-content {
+    padding: 20px 8px;
+    max-width: 99vw;
+  }
+  .filters {
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+  }
+}
+
+/* =========================
+   Inputs and Buttons
+   ========================= */
+/* Style for input, button, and select for consistency */
+input[type="date"],
+button,
+select {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: normal;
+  color: var(--nasa-black);
+  padding: 10px 15px;
+  border: 1px solid var(--nasa-blue);
+  border-radius: 4px;
+  font-size: 16px;
+  line-height: 1.4;
+  width: 100%;
+  background: var(--nasa-white);
+  transition: border 0.2s, box-shadow 0.2s;
+}
+
+/* Button specific styles */
+button {
+  background-color: var(--nasa-red);
+  color: var(--nasa-white);
+  cursor: pointer;
+  border: none;
+  font-weight: bold;
+  letter-spacing: 1px;
+  transition: background 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 8px rgba(252,61,33,0.11);
+}
+button:hover {
+  background-color: #d32f2f;
+  box-shadow: 0 4px 16px rgba(252,61,33,0.18);
+}
+
+/* Select dropdown styles */
+select {
+  background: var(--nasa-white);
+  color: var(--nasa-black);
+  border: 1px solid var(--nasa-blue);
+}
+
+/* Inputs and buttons stack horizontally on wider screens */
+@media (min-width: 600px) {
+  .filters {
+    flex-direction: row;
+    padding: 0;
+  }
+  input[type="date"],
+  button,
+  select {
+    width: auto;
+  }
+}
+
+/* =========================
+   Gallery Styles
+   ========================= */
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px;
+  justify-content: center;
+  background: var(--nasa-white);
+}
+
+/* Gallery item card */
+.gallery-item {
+  flex: 1 1 100%;
+  min-width: 280px;
+  max-width: 500px;
+  background: var(--nasa-white);
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(11,61,145,0.08);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--nasa-blue);
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.gallery-item:hover {
+  box-shadow: 0 6px 24px rgba(11,61,145,0.18);
+  transform: translateY(-4px) scale(1.02);
+}
+
+/* Three columns on wider screens */
+@media (min-width: 1000px) {
+  .gallery-item {
+    flex: 0 1 31%;
+  }
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 4px;
+  border: 2px solid var(--nasa-blue);
+  transition: box-shadow 0.2s;
+}
+.gallery-item img:hover {
+  box-shadow: 0 2px 12px rgba(11,61,145,0.18);
+}
+
+.gallery-item p {
+  margin-top: 10px;
+  padding: 5px;
+  font-size: 14px;
+}
+
+/* =========================
+   Placeholder Content
+   ========================= */
+.placeholder {
+  flex: 1 1 100%;
+  text-align: center;
+  padding: 40px;
+  color: var(--nasa-blue);
+  background: var(--nasa-white);
+}
+
+.placeholder-icon {
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+
+/* =========================
+   Modal Styles
+   ========================= */
+/* Hide details panel by default */
+#imageDetails {
+  display: none;
+}
+
+/* Modal styles - covers the whole screen and centers content */
+#imageModal {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background: rgba(11,61,145,0.6);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  transition: background 0.2s;
+}
+
+/* Modal content styles */
+#imageModal > div {
+  background: var(--nasa-white);
+  border-radius: 10px;
+  padding: 24px;
+  max-width: 600px;
+  width: 90vw;
+  box-shadow: 0 4px 24px rgba(11,61,145,0.2);
+  position: relative;
+  text-align: center;
+  transition: box-shadow 0.2s;
+}
+
+/* Close button for modal */
+#imageModal button {
+  position: absolute;
+  top: 10px;
+  right: 16px;
+  font-size: 2rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--nasa-red);
+}
+
+/* =========================
+   Header Styles
+   ========================= */
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  background: var(--nasa-blue);
+  border-radius: 12px 12px 0 0;
+}
+
+h1 {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  color: var(--nasa-white);
+  letter-spacing: 2px;
+}
+
+/* Logo */
+.logo {
+  width: 140px;
+  margin-right: 15px;
+}
+
+/* =========================
+   Container Styles
+   ========================= */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  background: var(--nasa-white);
+  border-radius: 12px;
+  /* Enhanced shadow for more contrast against the space background */
+  box-shadow: 0 4px 32px 8px rgba(11,61,145,0.18), 0 2px 12px rgba(11,61,145,0.08);
+}
+
+/* =========================
+   NASA Footer Styles
+   ========================= */
+.site-footer {
+  width: 100%;
+  background: var(--nasa-blue);
+  color: var(--nasa-white);
+  text-align: center;
+  padding: 18px 0;
+  font-size: 1rem;
+  margin-top: 40px;
+  border-radius: 0 0 12px 12px;
+  letter-spacing: 1px;
+}
+
+.site-footer a {
+  color: var(--nasa-red);
+  text-decoration: underline;
+  font-weight: bold;
+  transition: color 0.15s;
+}
+.site-footer a:hover {
+  color: #ff6659;
+}
+
+/* =========================
+   End of Styles
+   ========================= */
