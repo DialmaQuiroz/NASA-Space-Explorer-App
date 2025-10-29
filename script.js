@@ -27,6 +27,8 @@ modal.style.display = 'none';
 modal.style.position = 'fixed';
 modal.style.top = '0';
 modal.style.left = '0';
+modal.setAttribute('role', 'dialog');
+modal.setAttribute('aria-modal', 'true');
 
 const mainContainer = document.createElement('div');
 mainContainer.id = 'mainContainer';
@@ -98,11 +100,13 @@ factSection.style.textAlign = 'center';
 const container = document.querySelector('.container');
 container.parentNode.insertBefore(factSection, container.nextSibling);
 
+getImageBtn.disabled = true;
 function loadApodDates() {
   fetch(apodData)
     .then(response => response.json())
     .then(data => {
       window.apodJsonData = data;
+      getImageBtn.disabled = false; // Enable after data loads
 
       const dates = data.map(item => item.date);
 
@@ -137,6 +141,7 @@ closeBtn.style.background = 'none';
 closeBtn.style.border = 'none';
 closeBtn.style.cursor = 'pointer';
 closeBtn.style.color = '#fc3d21';
+closeBtn.setAttribute('aria-label', 'Close modal');
 modalContent.appendChild(closeBtn);
 
 document.body.appendChild(modal);
